@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html land="ja">
+  <head>
+    <link rel="stylesheet" href="futabize/futabize.css">
+  </head>
+  <body>
+    <center>
+      <div class="right">
+        <a href="<% echo(home) %>">[ホーム]</a>
+        <a href="<% echo(self) %>?mode=admin">[管理用]</a>
+      </div>
+
+      <span class="title"><% echo(title) %></span>
+      <hr width="90%">
+      
+      <% def(post_mode) %>
+      <!-- MODE(投稿モード) -->
+      <div class="left">
+        <a href="<% echo(self2) %>">[掲示板に戻る]</a>
+      </div>
+      <% def(admin) %>
+      <table class="admin-mode"><tr><th>管理モード</th></tr></table>
+      <div class="left"><br><b>タグが使えます</b><br></div>
+      <% /def %>
+
+      <div class="post">
+        <% def(pictmp) %>
+        <table border="1"><tr>
+          <% def(tmp) %>
+          <% each(tmp) %>
+          <td style="font-size: 0;">
+            <img src="<% echo(tmp/src) %>">
+          </td>
+          <% /each %>
+          <% elsedef %>
+          <td style="font-size: 110%;">
+            画像が見当たりません
+          </td>
+          <% /def %>
+        </tr></table>
+        <% def(tmp) %>
+        [スレッドを立てる]を押すと、この画像を登録します。
+        <% /def %>
+        <% /def %>
+
+      </div>
+      <% external "futabize/form.html" %>
+    </center>
+    <hr>
+
+    <script src="loadcookie.js"></script>
+    <script src="futabize/futabize.js"></script>
+    <script>
+     l();
+     fixSelect();
+     <% def(admin) %>fixAdminComment();<% /def %>
+    </script>
+
+    <% elsedef %>
+      <% def(err_mode) %>
+      <!-- エラー画面 -->
+      <% external "futabize/error.html" %>
+      <% /def %>
+
+      <% def(admin_in) %>
+		  <!-- 管理モード(認証) -->
+      <% external "futabize/login.html" %>
+      <% /def %>
+
+      <% def(admin_del) %>
+		  <!-- 管理モード(削除) -->
+      <% external "futabize/delete.html" %>
+      <% /def %>
+    </center>
+    <% /def %>
+  </body>
+</html>

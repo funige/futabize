@@ -1,0 +1,13 @@
+<div class="error">
+  <p><% echo(mes) %></p>
+  <a href="#" onclick="history.back();">リロード</a>
+</div>
+<script>
+  var p = document.querySelector(".error p");
+  if (p) {
+    p.innerHTML = p.innerHTML.replace(/\[.*?\]/g, '');
+  }
+</script>
+
+
+

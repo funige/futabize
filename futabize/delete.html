@@ -1,0 +1,52 @@
+<div class="left">
+  <a href="<% echo(self2) %>">[掲示板に戻る]</a>
+  <form class="update" action="<% echo(self) %>" method="post">
+    <input type="hidden" name="admin" value="update">
+    <input type="hidden" name="mode" value="admin">
+    <input type="hidden" name="pass" value="<% echo(pass) %>">
+    <a href="javascript:void()" onclick="document.getElementsByClassName('update')[0].submit();">[ログを更新する]</a>
+  </form>
+</div>
+<table class="admin-mode"><tr><th>管理モード</th></tr></table>
+
+<form action="<% echo(self) %>" method="post" class="admin-form">
+  <input type="hidden" name="mode" value="admin">
+  <input type="hidden" name="admin" value="del">
+  <input type="hidden" name="pass" value="<% echo(pass) %>">
+  <p>削除したい記事のチェックボックスにチェックを入れ、削除ボタンを押して下さい。</p>
+  <input class="button" type="submit" value="削除する">
+  <input class="button" type="reset" value="リセット">
+  <label>[<input type="checkbox" name="onlyimgdel" value="on">画像だけ消す]</label>
+
+  <table class="delfo" border="1" cellspacing="0">
+    <tr>
+      <th>削除</th>
+      <th>記事No</th>
+      <th>投稿日</th>
+      <th>題名</th>
+      <th>投稿者</th>
+      <th>コメント</th>
+      <th>ホスト名</th>
+      <th>添付 (Bytes)</th>
+      <th>md5</th>
+    </tr>
+    <% def(del) %><% each(del) %>
+    <tr>
+      <td><input type="checkbox" name="del[]" value="<% echo(del/no) %>"></td>
+      <td><% echo(del/no) %></td>
+      <td><% echo(del/now) %></td>
+      <td><% echo(del/sub) %></td>
+      <td><% echo(del/name) %></td>
+      <td><% echo(del/com) %></td>
+      <td><% echo(del/host) %></td>
+      <td><% def(del/clip) %><% echo(del/clip) %>(<% echo(del/size) %>)<% /def %></td>
+      <td><% def(del/clip) %><% echo(del/chk) %><% /def %></td>
+    </tr>
+    <% /each %><% /def %>
+  </table>
+  <input class="button" type="submit" value="削除する">
+  <input class="button" type="reset" value="リセット">
+</form>
+
+<p>【 画像データ合計：<b><% echo(all) %></b> KB 】</p>
+

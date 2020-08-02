@@ -1,0 +1,65 @@
+<% def(resno) %>
+<% var(send, '返信する') %>
+<% elsedef %>
+<% var(send, 'スレッドを立てる') %>
+<% /def %>
+
+<form action="<% echo(self) %><% def(resno) %>?res=<% echo(resno) %><% /def %>" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="mode" value="regist">
+  <input type="hidden" name="MAX_FILE_SIZE" value="<% echo(maxbyte) %>">
+  <% def(admin) %>
+  <input type="hidden" name="admin" value="<% echo(admin) %>">
+  <% /def %>
+  <% def(resno) %>
+  <input type="hidden" name="resto" value="<% echo(resno) %>">
+  <% /def %>
+  <% def(pictmp) %>
+  <input type="hidden" name="pictmp" value="<% echo(pictmp) %>">
+  <% /def %>
+  <% def(ptime) %>
+  <input type="hidden" name="ptime" value="<% echo(ptime) %>">
+  <% /def %>
+  <% def(tmp) %>
+  <select name="picfile" class="picselect" style="display: none;">
+    <% each(tmp) %><option value="<% echo(tmp/srcname) %>"></option><% /each %>
+  </select>
+  <% /def %>
+
+  <table cellpadding=1 cellspacing=1>
+    <tr>
+      <td class="form-left">おなまえ</td>
+      <td><input type="text" name="name" size=36></td>
+    </tr>
+    <tr>
+      <td class="form-left">E-mail</td>
+      <td><input type="text" name="email" size=40></td>
+    </tr>
+    <tr>
+      <td class="form-left">題　　名</td>
+      <td><input type="text" name="sub" size=40></td>
+    </tr>
+    <tr>
+      <td class="form-left">コメント</td>
+      <td><textarea name="com" cols=48 rows=4 wrap="soft"></textarea></td>
+    </tr>
+    <% def(upfile) %>
+    <tr>
+      <td class="form-left">添付File</td>
+      <td><input type="file" name="upfile" size=35>[<label><input type="checkbox" name="textonly" value="on">画像なし</label>]</td>
+    </tr>
+    <% /def %>
+    <tr>
+      <td class="form-left">削除キー</td>
+      <td><input type="password" name="pwd" size=8 maxlength=8 value=""><small>(記事の削除用、英数字で8文字以内)</small>
+        <input type="submit" value=" <% echo(send) %> "></td>
+    </tr>
+    <tr>
+      <td colspan=2><small>
+          <li>添付可能ファイル：GIF, JPG, PNG ブラウザによっては正常に添付できないことがあります。</li>
+          <li>最大投稿データ量は <% echo(maxkb) %> KB までです。sage機能付き。</li>
+          <li><a href="<% echo(self) %>?mode=catalog">カタログ</a>モード</li>
+          <li>画像は横 300 ピクセル、縦 300 ピクセルを超えると縮小表示されます。</li>
+      </small></td>
+    </tr>
+  </table>
+</form>

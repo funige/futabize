@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html land="ja">
+  <head>
+    <link rel="stylesheet" href="futabize/futabize.css">
+  </head>
+  <body>
+    <center>
+      <div class="right">
+        <a href="<% echo(home) %>">[ホーム]</a>
+        <a href="<% echo(self) %>?mode=admin">[管理用]</a>
+      </div>
+    
+      <span class="title"><% echo(title) %></span>
+      <hr width="90%">
+      
+      <% def(resno) %>
+      <div class="left">
+        <a href="<% echo(self2) %>">[掲示板に戻る]</a>
+      </div>
+      <table class="res-mode"><tr><th>レス送信モード</th></tr></table>
+
+      <% elsedef %>
+      <% def(paint) %>
+      <!-- お絵かきフォーム -->
+      <% external 'futabize/paint.html' %>
+      <% /def %>
+      <% /def %>
+
+      <!-- 投稿フォーム -->
+      <% external 'futabize/form.html' %>
+    </center>
+    <hr>
+
+    <form action="<% echo(self) %>" method="post">
+
+      <!-- スレッド表示 -->
+      <% each(oya) %>
+      <div class="thre">
+        <% external 'futabize/oya.html' %>
+        
+        <% each(oya/res) %>
+        <table border="0">
+          <tr>
+            <td class="rts">…</td>
+            <td class="rtd">
+              <% external 'futabize/res.html' %>
+            </td>
+          </tr>
+        </table>
+        <% /each %>
+        
+        <div style="clear:left;"></div>
+      </div>
+      <hr>
+      <% /each %>
+
+      <table align="right"><tr><td align="center">
+        <input type="hidden" name="mode" value="usrdel">【記事削除】
+        [<input type="checkbox" name="onlyimgdel" value="on">画像だけ消す]<br>
+        削除キー<input type="password" name="pwd" size=8 maxlength=8 value="">
+        <input type="submit" value="削除"></td></tr></table>
+    </form>
+    
+    <% def(resno) %>
+    <% elsedef %>
+    <p class="page">
+      <% echo(paging) %>
+    </p>
+    <% /def %>
+
+    <br clear="all">
+    <% external 'futabize/copy.html' %>
+  </body>
+
+  <script src="loadcookie.js"></script>
+  <script src="futabize/futabize.js"></script>
+  <script>
+   l();
+   fixPage("<% echo(prev) %>", "<% echo(next) %>");
+  </script>
+</html>

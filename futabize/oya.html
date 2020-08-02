@@ -1,0 +1,27 @@
+<% def(oya/src) %>
+画像ファイル名：
+<a href="<% echo(oya/src) %>" target="_blank"><% echo(oya/srcname) %></a>-(<% echo(oya/size) %>B)<br>
+<a href="<% echo(oya/src) %>" target="_blank"><img src="<% echo(oya/imgsrc) %>" border="0" align="left" hspace="20" alt="<% echo(oya/size) %>B"></a>
+<% /def %>
+
+<input type="checkbox" name="del[]" value="<% echo(oya/no) %>">
+<span class="csb"><% echo(oya/sub) %></span>
+Name
+<span class="cnm">
+  <% def(oya/email) %>
+  <a href="<% echo(oya/email) %>"><% echo(oya/name) %></a>
+  <% elsedef %>
+  <% echo(oya/name) %>
+  <% /def %>
+</span>
+<span class="cnw"><% echo(oya/now) %></span>
+<span class="cno">No.<% echo(oya/no) %></span>
+[<a class="hsbn" href="potiboard.php?res=<% echo(oya/no) %>">返信</a>]<br>
+
+<blockquote>
+  <% echo(oya/com) %><br>
+</blockquote>
+
+<% def(oya/skipres) %>
+<div class="skipres">レス<% echo(oya/skipres) %>件省略。すべて見るには返信ボタンをクリックしてください。</div>
+<% /def %>

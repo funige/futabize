@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html land="ja">
+  <% calc(h,-=,90) %>
+  <% def(useneo) %>
+  <% var(applet, 'applet-dummy') %>
+  <% elsedef %>
+  <% var(applet, 'applet') %>
+  <% /def %>
+  
+  <head>
+    <link rel="stylesheet" href="futabize/futabize.css">
+    <% def(useneo) %>
+    <link rel="stylesheet" href="neo.css" type="text/css" />
+    <script src="neo.js" charset="UTF-8"></script>
+    <% /def %>
+  </head>
+  <body>
+    <center>
+      <div class="right">
+        <a href="<% echo(home) %>">[ホーム]</a>
+        <a href="<% echo(self) %>?mode=admin">[管理用]</a>
+      </div>
+
+      <span class="title"><% echo(title) %></span>
+      <hr width="90%">
+      
+      <!-- お絵かき掲示板 -->
+      <<% echo(applet) %> code="pbbs.PaintBBS.class" archive="./PaintBBS.jar" name="paintbbs" width="<% echo(w) %>" height="<% echo(h) %>" mayscript>
+	      <param name="image_width" value="<% echo(picw) %>">
+	      <param name="image_height" value="<% echo(pich) %>">
+	      <param name="image_bkcolor" value="#FFFFFF">
+	      <param name="image_size" value="0">
+	      <param name="undo" value="90">
+	      <param name="undo_in_mg" value="15">
+	      <param name="color_text" value="#EFEFFF">
+	      <param name="color_bk" value="#E8EFFF">
+	      <param name="color_bk2" value="#D5D8EF">
+	      <param name="color_icon" value="#A1B8D8">
+	      <param name="color_iconselect" value="#000000">
+	      <param name="url_save" value="picpost.php">
+	      <param name="url_exit" value="<% echo(self) %>?mode=piccom">
+	      <param name="poo" value="false">
+	      <param name="send_advance" value="true">
+	      <param name="thumbnail_width" value="100%">
+	      <param name="thumbnail_height" value="100%">
+	      <param name="tool_advance" value="true">
+	      <param name="tool_color_button" value="#D2D8FF">
+	      <param name="tool_color_button2" value="#D2D8FF">
+	      <param name="tool_color_text" value="#5A5781">
+	      <param name="tool_color_bar" value="#D2D8F0">
+	      <param name="tool_color_frame" value="#7474AB">        
+      </<% echo(applet) %>>
+	    <br>
+      <br>
+      <br>
+	    <a href="<% echo(self) %>">戻る</a><br>
+      <a href="<% echo(self) %>?mode=piccom">アップロード途中の画像</a>
+    </center>
+    <hr>
+
+    <br clear="all">
+    <% external 'futabize/copy.html' %>
+  </body>
+</html>

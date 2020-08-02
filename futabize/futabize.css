@@ -1,0 +1,192 @@
+body {
+  background-color: #ffffee;
+  color: #800000;
+  -webkit-text-size-adjust: 100%;
+}
+a:link {
+  color: #0000ee:
+}
+a:visited {
+  color: #0000ee;
+}
+img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.csb {
+  font-weight: bold;
+  color: #cc1105;
+}
+
+.cnm {
+  font-weight: bold;
+  color: green;
+}
+
+.rts {
+  width: 18px;
+  vertical-align: top;
+}
+
+.resma {
+  color: #789922;
+}
+
+.rtd {
+  background-color: #f0e0d6;
+  padding: 1px 8px 1px 1px;
+}
+
+.hsbn {
+  font-size: 120%;
+  white-space: nowrap;
+}
+
+.form-left {
+  font-weight: bold;
+  background-color: #eeaa88;
+}
+.copy p {
+  font-size: small;
+  text-align: center;
+  margin: 0;
+}
+.page .thispage {
+  font-style: normal;
+  font-weight: bold;
+}
+button {
+  padding: 5px 13px;
+}
+
+.catalog-mode {
+  width: 100%;
+}
+
+.catalog-mode th {
+  background-color: #0040e0;
+  color: white;
+}
+
+.res-mode {
+  width: 100%;
+}
+
+.res-mode th {
+  background-color: #e04000;
+  color: white;
+}
+
+.admin-mode {
+  width: 100%;
+}
+
+.admin-mode th {
+  background-color: #e08000;
+  color: white;
+}
+
+.admin-form {
+  margin: 1em 0;
+}
+
+.admin-form input {
+  margin: 1em 0;
+}
+
+.cattable {
+  line-height: 100%;
+}
+
+.cattable img {
+  max-width: 50px;
+  max-height: 50px;
+  border: none;
+}
+
+.cattable .numres {
+  font-size: 90%;
+}
+
+.cattable .noimage {
+  font-size: 90%;
+}
+
+.title {
+  font-size: 160%;
+  font-weight: bold;
+}
+.skipres {
+  color: #707070;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+
+.post {
+  font-size: 160%;
+}
+
+.post img {
+  margin: 0;
+}
+
+.post table {
+}
+
+.post td {
+  display: none;
+}
+.post td:last-child {
+  display: table-cell;
+}
+
+.error {
+  margin: 2em 0;
+  font-size: 140%;
+  font-weight: bold;
+}
+.error hr {
+  margin: 2em 0;
+}
+
+.error p {
+  color: red;
+}
+
+.delfo {
+  background-color: white;
+  text-align: center;
+}
+
+.delfo tr {
+  background-color: #d6d6f6;
+}
+
+.delfo tr:nth-child(2n) {
+  background-color: #f6f6f6;
+}
+
+.delfo tr:first-child {
+  background-color: #6080f6;
+}
+
+.update {
+  display: inline;
+}
+
+@media screen and (max-device-width: 799px) {
+  body {
+    font-size: 150%;
+  }
+  input,textarea {
+    font-size: 110%;
+  }
+  blockquote {
+    font-size: 180%;
+  }
+}

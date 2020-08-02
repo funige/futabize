@@ -1,0 +1,21 @@
+<% def(oya/res/src) %>
+画像ファイル名：
+<a href="<% echo(oya/res/src) %>" target="_blank"><% echo(oya/res/srcname) %></a>-(<% echo(oya/res/size) %>B)<br>
+<a href="<% echo(oya/res/src) %>" target="_blank"><img src="<% echo(oya/res/imgsrc) %>" border="0" align="left" hspace="20" alt="<% echo(oya/res/size) %>B"></a>
+<% /def %>
+
+<input type="checkbox" name="del[]" value="<% echo(oya/res/no) %>">
+<span class="csb"><% echo(oya/res/sub) %></span>
+Name
+<span class="cnm">
+  <% def(oya/res/email) %>
+  <a href="<% echo(oya/res/email) %>"><% echo(oya/res/name) %></a>
+  <% elsedef %>
+  <% echo(oya/res/name) %>
+  <% /def %>
+</span>
+<span class="cnw"><% echo(oya/res/now) %></span>
+<span class="cno">No.<% echo(oya/res/no) %></span>
+<blockquote>
+  <% echo(oya/res/com) %><br>
+</blockquote>

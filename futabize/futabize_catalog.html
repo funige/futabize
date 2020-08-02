@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html land="ja">
+  <head>
+    <link rel="stylesheet" href="futabize/futabize.css">
+  </head>
+  <body>
+    <center>
+      <div class="right">
+        <a href="<% echo(home) %>">[ホーム]</a>
+        <a href="<% echo(self) %>?mode=admin">[管理用]</a>
+      </div>
+
+      <span class="title"><% echo(title) %></span>
+      <hr width="90%">
+      
+      <div class="left">
+        <a href="<% echo(self2) %>">[掲示板に戻る]</a>
+      </div>
+      <table class="catalog-mode"><tr><th>カタログモード</th></tr></table>
+
+      <!-- カタログ表示 -->
+      <table border="1" class="cattable">
+        <% each(y) %>
+        <tr>
+          <% each(y/x) %>
+          <% def(y/x/no)%>
+          <td>
+            <a href="<% echo(self) %>?res=<% echo(y/x/no) %>" target="_blank">
+              <% def(y/x/imgsrc) %>
+              <img src="<% echo(y/x/imgsrc) %>" alt="">
+              <% elsedef %>
+              <span class="noimage">画像なし</span>
+              <% /def %>
+            </a><br>
+            <span class="numres"><% echo(y/x/numres) %></span>
+          </td>
+          <% /def %>
+          <% /each %>
+        </tr>
+        <% /each %>
+      </table>
+    </center>
+    <hr>
+
+    <br clear="all">
+    <% external 'futabize/copy.html' %>
+  </body>
+</html>

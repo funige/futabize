@@ -1,0 +1,8 @@
+<form action="<% echo(self) %>" method="POST">
+  横<input type=text name="picw" value="300" size=3>×縦<input type=text name="pich" value="300" size=3>
+  <label><input type=checkbox name=useneo checked=checked />NEOを使う</label>
+  <input type=submit value="お絵かきする">
+  <input type=hidden name=mode value=paint>
+</form>
+
+<a href="<% echo(self) %>?mode=piccom">アップロード途中の画像</a>
