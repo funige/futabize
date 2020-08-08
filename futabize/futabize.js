@@ -1,3 +1,4 @@
+// ページ選択をふたばのフォーマットに合わせる
 function fixPage(prev, next) {
   var tmp = [];
   var page = document.getElementsByClassName('page')[0];
@@ -9,6 +10,7 @@ function fixPage(prev, next) {
   }
 }
 
+//　アップロード途中の画像が複数あるときは最後の画像を選択する
 function fixSelect() {
   var pics = document.getElementsByClassName('picselect')[0];
   if (pics) {
@@ -19,10 +21,18 @@ function fixSelect() {
   }
 }
 
+// 管理人投稿
 function fixAdminComment() {
   for (var i = 0; i < document.forms.length; i++) {
-    if (document.forms[i].com) {
-      document.forms[i].com.value = "<font color='red'>[管理人]</font>\n";
-    }
+    var form = document.forms[i];
+    if (form.com) form.com.value = "<font color='red'>[管理人]</font>\n";
+    if (form.name) form.name.value = "";
+    if (form.email) form.email.value = "";
   }
+}
+
+// カタログの下に数ピクセル余白が出るのを消す
+function fixCatalog() {
+  var cattable = document.getElementsByClassName('cattable')[0];
+  cattable.innerHTML = cattable.innerHTML.replace(/<tr>\s*<\/tr>/g, '');
 }

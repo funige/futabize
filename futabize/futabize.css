@@ -9,7 +9,14 @@ a:link {
 a:visited {
   color: #0000ee;
 }
-img {
+
+.crisp {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.thre img {
   max-width: 300px;
   max-height: 300px;
 }

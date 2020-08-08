@@ -26,11 +26,30 @@
 
       <div class="post">
         <% def(pictmp) %>
+        <span style="font-size: 12px; color:red;">
+          すみません。retinaでの画像の見え方のテストをしています... 
+          devicePixelRatio =
+          <script>
+            const ratio = devicePixelRatio
+            document.write(ratio)
+            const useCrisp = (Math.floor(ratio) === ratio) ? true : false;
+            if (useCrisp) {
+              document.write(' (use crisp image)');
+            }
+          </script>
+        </span><br>
         <table border="1"><tr>
           <% def(tmp) %>
           <% each(tmp) %>
           <td style="font-size: 0;">
             <img src="<% echo(tmp/src) %>">
+            <script>
+              if (useCrisp) {
+              document.write('<img class="crisp" style="border-left: 1px solid black;" src="<% echo(tmp/src) %>">')
+              } else {
+              document.write('<img style="border-left: 1px solid black;" src="<% echo(tmp/src) %>">')
+              }
+            </script>
           </td>
           <% /each %>
           <% elsedef %>

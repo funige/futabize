@@ -1,7 +1,8 @@
 <% def(oya/src) %>
 画像ファイル名：
-<a href="<% echo(oya/src) %>" target="_blank"><% echo(oya/srcname) %></a>-(<% echo(oya/size) %>B)<br>
-<a href="<% echo(oya/src) %>" target="_blank"><img src="<% echo(oya/imgsrc) %>" border="0" align="left" hspace="20" alt="<% echo(oya/size) %>B"></a>
+<a href="<% echo(oya/src) %>" target="_blank"><% echo(oya/srcname) %></a>-(<% echo(oya/size) %>B)xx:<% echo(oya/w) %> yy:<% echo(oya/h) %>
+<br>
+<a href="<% echo(oya/src) %>" target="_blank"><img src="<% echo(oya/imgsrc) %>" border="0" align="left" hspace="20" alt="<% echo(oya/size) %>B></a>
 <% /def %>
 
 <input type="checkbox" name="del[]" value="<% echo(oya/no) %>">
@@ -16,7 +17,10 @@ Name
 </span>
 <span class="cnw"><% echo(oya/now) %></span>
 <span class="cno">No.<% echo(oya/no) %></span>
+<% def(resno) %>
+<% elsedef %>
 [<a class="hsbn" href="potiboard.php?res=<% echo(oya/no) %>">返信</a>]<br>
+<% /def %>
 
 <blockquote>
   <% echo(oya/com) %><br>

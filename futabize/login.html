@@ -4,10 +4,10 @@
 <table class="admin-mode"><tr><th>管理モード</th></tr></table>
 
 <form action="<% echo(self) %>" method="post" class="admin-form">
-  <label><input type="radio" name="admin" value="update">ログを更新する</label>
+  <label><input type="radio" name="admin" value="update" checked>ログを更新する</label>
   <label><input type="radio" name="admin" value="del">記事削除</label>
   <label><input type="radio" name="admin" value="post">管理人投稿</label><br>
   <input type="hidden" name="mode" value="admin">
-  <input type="password" name="pass" size="8">
+  <input type="password" name="pass" size="8" autofocus>
   <input type="submit" value="認証">
 </form>
