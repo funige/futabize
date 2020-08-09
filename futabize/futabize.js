@@ -17,7 +17,6 @@ function fixSelect() {
     var len = pics.options.length;
     pics.options[0].selected = false;
     if (len) pics.options[len - 1].selected = true;
-    console.log('fixSelect', len);
   }
 }
 
@@ -35,4 +34,23 @@ function fixAdminComment() {
 function fixCatalog() {
   var cattable = document.getElementsByClassName('cattable')[0];
   cattable.innerHTML = cattable.innerHTML.replace(/<tr>\s*<\/tr>/g, '');
+}
+
+// devicePixelRatioが整数倍の時は画像がボケないように表示する
+function fixImage(maxw, maxh) {
+  var useCrisp = (Math.floor(devicePixelRatio) === devicePixelRatio);
+  if (useCrisp) {
+    var images = document.getElementsByTagName('img');
+    for (var i = 0; i < images.length; i++) {
+      var image = images[i];
+      if (image.attributes['data-w'] && image.attributes['data-h']) {
+        var w = parseInt(image.attributes['data-w'].value);
+        var h = parseInt(image.attributes['data-h'].value);
+        if ((!maxw || w <= maxw) &&
+            (!maxh || h <= maxh)) {
+          image.className = "crisp";
+        }
+      }
+    }
+  }
 }

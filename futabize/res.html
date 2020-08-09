@@ -1,7 +1,7 @@
 <% def(oya/res/src) %>
 画像ファイル名：
 <a href="<% echo(oya/res/src) %>" target="_blank"><% echo(oya/res/srcname) %></a>-(<% echo(oya/res/size) %>B)<br>
-<a href="<% echo(oya/res/src) %>" target="_blank"><img src="<% echo(oya/res/imgsrc) %>" border="0" align="left" hspace="20" alt="<% echo(oya/res/size) %>B"></a>
+<a href="<% echo(oya/res/src) %>" target="_blank"><img src="<% echo(oya/res/imgsrc) %>" border="0" align="left" hspace="20" alt="<% echo(oya/res/size) %>B" data-w="<% echo(oya/res/w)%>" data-h="<% echo(oya/res/h) %>"></a>
 <% /def %>
 
 <input type="checkbox" name="del[]" value="<% echo(oya/res/no) %>">
