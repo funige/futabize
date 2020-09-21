@@ -6,6 +6,10 @@
     <input type="hidden" name="pass" value="<% echo(pass) %>">
     <a href="javascript:void()" onclick="document.getElementsByClassName('update')[0].submit();">[ログを更新する]</a>
   </form>
+  <form class="fixtree" action="fixtree.php" method="post" style="float:right;">
+    <input type="hidden" name="pass" value="<% echo(pass) %>">
+    <a href="javascript:void()" onclick="document.getElementsByClassName('fixtree')[0].submit();">[tree.logを修復する]</a>
+  </form>
 </div>
 <table class="admin-mode"><tr><th>管理モード</th></tr></table>
 
