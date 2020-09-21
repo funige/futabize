@@ -77,12 +77,10 @@ function login() {
         exit;
     }
 
-    if ($ADMIN_PASS) {
-        global $ADMIN_PASS;
-        $password = $ADMIN_PASS; //改二
-    } else {
-        $password = ADMIN_PASS; //旧バージョン
-    }
+    global $ADMIN_PASS;
+    $password = $ADMIN_PASS; //改二
+    
+    //$password = ADMIN_PASS; //旧バージョン
     
     if ($_POST["pass"] != $password) {
         return false;
